@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dd8fuu7d4w522"
+path="res://.godot/imported/Bipod.obj-0976b01a08d27bd42e1225efa97ec282.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bipod.obj-0976b01a08d27bd42e1225efa97ec282.mesh"]
+
+source_file="res://assets/OBJ/Accessories/Bipod.obj"
+dest_files=["res://.godot/imported/Bipod.obj-0976b01a08d27bd42e1225efa97ec282.mesh", "res://.godot/imported/Bipod.obj-0976b01a08d27bd42e1225efa97ec282.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

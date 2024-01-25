@@ -1,38 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsm7aiekhwnpx"]
+[gd_scene load_steps=3 format=3 uid="uid://b3mwtpvv1ud41"]
 
 [ext_resource type="Script" path="res://scripts/hunter.gd" id="1_88ndj"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_ijogl"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_r8y17"]
-
-[sub_resource type="Environment" id="Environment_6cttl"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3pnaq"]
+[ext_resource type="ArrayMesh" uid="uid://6r3xaris0rvf" path="res://assets/OBJ/Pistol_6.obj" id="2_xc072"]
 
 [node name="Hunter" type="Node3D"]
 script = ExtResource("1_88ndj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.5668)
-mesh = SubResource("BoxMesh_ijogl")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.5401)
-mesh = SubResource("BoxMesh_r8y17")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6cttl")
-camera_attributes = SubResource("CameraAttributesPractical_3pnaq")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(-0.998734, 0.0124237, -0.0487534, 0.0214711, 0.981607, -0.189704, 0.0454997, -0.190511, -0.98063, -0.0678582, 0.450268, 2.44004)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
+transform = Transform3D(0.0170463, 0.0162934, 0.198605, -0.0438873, 0.194743, -0.0122097, -0.19438, -0.0425405, 0.0201736, -0.04, 0.0999998, -0.00500011)
+mesh = ExtResource("2_xc072")
+
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(0.997461, -0.0712189, 0, 0.0712189, 0.997461, 0, 0, 0, 1, 0.398434, 1, -0.5)
 tracker = &"right_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
+transform = Transform3D(0.0170463, 0.0162934, 0.198605, -0.0438873, 0.194743, -0.0122097, -0.19438, -0.0425404, 0.0201736, -0.04, 0.1, 0.099)
+mesh = ExtResource("2_xc072")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.998493, 0.0154759, 0.0526472, 0.00696381, -0.987387, 0.158174, 0.0544311, -0.157569, -0.986007, -0.000367761, 2.54117, -0.12218)

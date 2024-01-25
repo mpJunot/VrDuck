@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7w0u2s7nas01"
+path="res://.godot/imported/Bullpup_2.obj-edcdca0c1166eb4672317cd62363d207.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bullpup_2.obj-edcdca0c1166eb4672317cd62363d207.mesh"]
+
+source_file="res://assets/OBJ/Bullpup_2.obj"
+dest_files=["res://.godot/imported/Bullpup_2.obj-edcdca0c1166eb4672317cd62363d207.mesh", "res://.godot/imported/Bullpup_2.obj-edcdca0c1166eb4672317cd62363d207.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cis014qa8s47g"
+path="res://.godot/imported/SniperRifle_5.obj-6052b3be9f5dbdd7b45a442c2689bd61.mesh"
+
+[deps]
+
+files=["res://.godot/imported/SniperRifle_5.obj-6052b3be9f5dbdd7b45a442c2689bd61.mesh"]
+
+source_file="res://assets/OBJ/SniperRifle_5.obj"
+dest_files=["res://.godot/imported/SniperRifle_5.obj-6052b3be9f5dbdd7b45a442c2689bd61.mesh", "res://.godot/imported/SniperRifle_5.obj-6052b3be9f5dbdd7b45a442c2689bd61.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cqy4iyfpb0g63"
+path="res://.godot/imported/Shotgun_ShortStock.obj-a698b6b61c9a148672b168a7e0aba70b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Shotgun_ShortStock.obj-a698b6b61c9a148672b168a7e0aba70b.mesh"]
+
+source_file="res://assets/OBJ/Shotgun_ShortStock.obj"
+dest_files=["res://.godot/imported/Shotgun_ShortStock.obj-a698b6b61c9a148672b168a7e0aba70b.mesh", "res://.godot/imported/Shotgun_ShortStock.obj-a698b6b61c9a148672b168a7e0aba70b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

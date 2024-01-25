@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dooo2s15bg8pu"
+path="res://.godot/imported/Silencer_2.obj-85983c1e141f79a6370f172c6af071ec.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Silencer_2.obj-85983c1e141f79a6370f172c6af071ec.mesh"]
+
+source_file="res://assets/OBJ/Accessories/Silencer_2.obj"
+dest_files=["res://.godot/imported/Silencer_2.obj-85983c1e141f79a6370f172c6af071ec.mesh", "res://.godot/imported/Silencer_2.obj-85983c1e141f79a6370f172c6af071ec.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
