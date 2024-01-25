@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsm7aiekhwnpx"]
+
+[ext_resource type="Script" path="res://scripts/hunter.gd" id="1_88ndj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ijogl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r8y17"]
+
+[sub_resource type="Environment" id="Environment_6cttl"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3pnaq"]
+
+[node name="Hunter" type="Node3D"]
+script = ExtResource("1_88ndj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.5668)
+mesh = SubResource("BoxMesh_ijogl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.5401)
+mesh = SubResource("BoxMesh_r8y17")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6cttl")
+camera_attributes = SubResource("CameraAttributesPractical_3pnaq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
