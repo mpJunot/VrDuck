@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3mwtpvv1ud41"]
+[gd_scene load_steps=5 format=3 uid="uid://b3mwtpvv1ud41"]
 
 [ext_resource type="Script" path="res://scripts/hunter.gd" id="1_88ndj"]
 [ext_resource type="ArrayMesh" uid="uid://6r3xaris0rvf" path="res://assets/OBJ/Pistol_6.obj" id="2_xc072"]
+[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="3_yk2oq"]
+[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="4_0w44f"]
 
 [node name="Hunter" type="Node3D"]
 script = ExtResource("1_88ndj")
@@ -11,22 +13,28 @@ transform = Transform3D(-0.998734, 0.0124237, -0.0487534, 0.0214711, 0.981607, -
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+metadata/_edit_group_ = true
 
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
-transform = Transform3D(0.0170463, 0.0162934, 0.198605, -0.0438873, 0.194743, -0.0122097, -0.19438, -0.0425405, 0.0201736, -0.04, 0.0999998, -0.00500011)
+[node name="pistol" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
+transform = Transform3D(0.0167649, 0.0167017, 0.198595, -0.0643649, 0.189071, -0.0104672, -0.188617, -0.0630353, 0.0212237, -0.04, 0.0999998, -0.00500011)
 mesh = ExtResource("2_xc072")
+metadata/_edit_group_ = true
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("3_yk2oq")]
+transform = Transform3D(1, -1.86265e-09, 0, -1.39698e-08, 1, 0, 0, 0, 1, -0.129272, 0.0520649, -0.0837901)
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(0.997461, -0.0712189, 0, 0.0712189, 0.997461, 0, 0, 0, 1, 0.398434, 1, -0.5)
 tracker = &"right_hand"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
-transform = Transform3D(0.0170463, 0.0162934, 0.198605, -0.0438873, 0.194743, -0.0122097, -0.19438, -0.0425404, 0.0201736, -0.04, 0.1, 0.099)
+[node name="pistol" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
+transform = Transform3D(0.0156171, 0.0160986, 0.198738, -0.0623814, 0.189734, -0.0104672, -0.18938, -0.0611705, 0.0198367, -0.0399999, 0.1, 0.099)
 mesh = ExtResource("2_xc072")
+metadata/_edit_group_ = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.998493, 0.0154759, 0.0526472, 0.00696381, -0.987387, 0.158174, 0.0544311, -0.157569, -0.986007, -0.000367761, 2.54117, -0.12218)
+[node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("4_0w44f")]
+transform = Transform3D(1, -3.07336e-08, -3.72529e-09, -6.0536e-09, 1, 1.49012e-08, 5.58794e-09, 0, 1, 0.0149701, -0.00453079, -0.0161414)

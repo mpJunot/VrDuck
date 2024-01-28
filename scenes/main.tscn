@@ -1,0 +1,135 @@
+[gd_scene load_steps=19 format=3 uid="uid://d2hucalepdloq"]
+
+[ext_resource type="PackedScene" uid="uid://hpr0v012ghsb" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_tac_glove.tscn" id="1_6a1hu"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_ha3rj"]
+[ext_resource type="PackedScene" uid="uid://dup2vp8v5rpi5" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_tac_glove.tscn" id="2_hyqht"]
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="3_mbhoa"]
+[ext_resource type="PackedScene" uid="uid://cy0lsv1kxiait" path="res://objects/pistol.tscn" id="6_30ten"]
+[ext_resource type="PackedScene" uid="uid://tr8322ipvbir" path="res://objects/Duck.tscn" id="6_cvyj0"]
+[ext_resource type="PackedScene" uid="uid://dkis1ctlyeygq" path="res://objects/Table.tscn" id="7_dyshp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xj8ht"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_5k8gn"]
+sky_material = SubResource("ProceduralSkyMaterial_xj8ht")
+
+[sub_resource type="Environment" id="Environment_ubyny"]
+background_mode = 2
+sky = SubResource("Sky_5k8gn")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bglx1"]
+albedo_color = Color(0, 0.27451, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_hs4bd"]
+material = SubResource("StandardMaterial3D_bglx1")
+size = Vector2(30, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5quin"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3e30o"]
+size = Vector3(30, 2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5agf8"]
+albedo_color = Color(0.784314, 0.521569, 0.270588, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_urf64"]
+material = SubResource("StandardMaterial3D_5agf8")
+size = Vector3(30, 2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkcpg"]
+albedo_color = Color(0.541176, 0.541176, 0.541176, 1)
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_b0xg6"]
+material = SubResource("StandardMaterial3D_gkcpg")
+size = Vector3(5, 1, 0.5)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ubyny")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.980213, 0.0253635, -0.196315, 0.147684, 0.566663, 0.810606, 0.131804, -0.823559, 0.551705, -2.01012, 74.5073, 2.58512)
+shadow_enabled = true
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021472, -0.846359, -5.38349)
+
+[node name="LeftController" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261637, 3.15535, 0.0845351)
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="LeftHand" parent="XROrigin3D/LeftController" instance=ExtResource("1_6a1hu")]
+
+[node name="FunctionPickup" parent="XROrigin3D/LeftController" instance=ExtResource("2_ha3rj")]
+
+[node name="RightController" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268, 3.155, 0.085)
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="RightHand" parent="XROrigin3D/RightController" instance=ExtResource("2_hyqht")]
+
+[node name="FunctionPickup" parent="XROrigin3D/RightController" instance=ExtResource("2_ha3rj")]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2907, 0)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, -0.00401425, 0.999992, 0, -0.999992, -0.00401425, 0, 0, 0)
+mesh = SubResource("QuadMesh_hs4bd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.467232, 0)
+shape = SubResource("BoxShape3D_5quin")
+
+[node name="StartXR" parent="." instance=ExtResource("3_mbhoa")]
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+shape = SubResource("BoxShape3D_3e30o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 0.998282, -0.058592, 0, 0.058592, 0.998282, 0, 0, 0)
+mesh = SubResource("BoxMesh_urf64")
+
+[node name="Targets" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.56122, -14.6494)
+mesh = SubResource("BoxMesh_b0xg6")
+skeleton = NodePath("")
+
+[node name="Duck" parent="Targets" instance=ExtResource("6_cvyj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.606823, 0.698116, 0)
+
+[node name="Duck2" parent="Targets" instance=ExtResource("6_cvyj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.698116, 0)
+
+[node name="Duck3" parent="Targets" instance=ExtResource("6_cvyj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19854, 0.698116, 0)
+
+[node name="Duck4" parent="Targets" instance=ExtResource("6_cvyj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68932, 0.698116, 0)
+
+[node name="RigidBody3D" parent="." instance=ExtResource("7_dyshp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7465, -6.33327)
+
+[node name="Pistol" parent="RigidBody3D" instance=ExtResource("6_30ten")]
+transform = Transform3D(-0.00947704, 0, 0.999955, 0, 1, 0, -0.999955, 0, -0.00947704, 0.312808, 0.533898, 0.237773)
+
+[node name="Pistol2" parent="RigidBody3D" instance=ExtResource("6_30ten")]
+transform = Transform3D(-0.0312189, 0, 0.999513, 0, 1, 0, -0.999513, 0, -0.0312189, -0.827294, 0.455484, 0.13508)
+
+[node name="Pistol3" parent="RigidBody3D" instance=ExtResource("6_30ten")]
+transform = Transform3D(-0.0398353, 0, 0.999206, 0, 1, 0, -0.999206, 0, -0.0398353, -0.109136, 0.395502, 0.118477)

@@ -1,12 +1,22 @@
-------------------------------------------------------
-LowPoly Models by @Quaternius
-Consider supporting me on Patreon, even $1 helps me a lot!
+	
 
-https://www.patreon.com/quaternius
--------------------------------------------------------
+	Weapon Models
 
-License:
-CC0 1.0 Universal (CC0 1.0) 
-Public Domain Dedication
-https://creativecommons.org/publicdomain/zero/1.0/
+	by  Kenney Vleugels (Kenney.nl)
+	and Casper Jorissen (Kenney.nl)
 
+			------------------------------
+
+	License (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use these assets in personal and commercial projects.
+	Credit (Kenney or www.kenney.nl) would be nice but is not mandatory.
+
+			------------------------------
+
+	Donate:   http://support.kenney.nl
+	Request:  http://request.kenney.nl
+
+	Follow on Twitter for updates:
+	@KenneyWings

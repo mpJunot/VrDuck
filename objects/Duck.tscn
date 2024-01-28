@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://tr8322ipvbir"]
+
+[ext_resource type="Script" path="res://scripts/Duck.gd" id="1_2cek0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oxmv7"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oon85"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[node name="Duck" type="CharacterBody3D"]
+script = ExtResource("1_2cek0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_oxmv7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_oon85")
